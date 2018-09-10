@@ -1,0 +1,11 @@
+{
+  "name": "NEAC_GUARDIAN",
+  "version": "1.0.0",
+  "description": "Guardin' your arcades, holdin' back the drunks, givin' the news.",
+  "main": "bot.js",
+  "author": "Hedonic",
+  "dependencies": {
+    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "winston": "^3.0.0"
+  }
+}
