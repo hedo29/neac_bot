@@ -59,7 +59,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 var timeReported = new Date();
                 timeReported = timeReported.toString();
                 var reporter = userID;
-                if (loc !== 'SCG' && loc !== 'GU' && loc !== 'MEM' && loc != 'SSP' && loc != 'CRG') {
+                if (loc !== 'SCG' && loc !== 'GU' && loc !== 'MEM' && loc != 'SSP' && loc != 'CRG' && loc != 'HYM') {
                     bot.sendMessage({
                         to: channelID,
                         message: '<@' + userID + '>, please enter a valid location. Currently supported locations are: \nSCG GU MEM SSP CRG'
@@ -81,7 +81,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 writeStatus();
             break;
             case 'resolve':
-                if (!args[1] || (args[0] !== 'SCG' && args[0] !== 'GU' && args[0] !== 'MEM' && args[0] != 'SSP' && args[0] != 'CRG')) {
+                if (!args[1] || (args[0] !== 'SCG' && args[0] !== 'GU' && args[0] !== 'MEM' && args[0] != 'SSP' && args[0] != 'CRG' && loc != 'HYM')) {
                     bot.sendMessage({
                         to: channelID,
                         message: '<@' + userID + '>, please supply a location (using the abbreviation in the status list) and an entry ID.'
@@ -296,7 +296,7 @@ function reverseLookup(userID) {
 
 function writeStatus() {
     var newStatus = '```';
-    var locations = ['scg', 'ssp', 'mem', 'crg', 'gu'];
+    var locations = ['scg', 'ssp', 'mem', 'crg', 'gu', 'hym'];
     for (i=0;i<locations.length;i++) {
         var data = fs.readFileSync('storestatus/' + locations[i].toLowerCase() + '.csv');
         data = data + '';
